@@ -6,12 +6,14 @@ interface IStyle {
   margin?: string;
   padding?: string;
   display?: string | "flex";
+  color?: string;
   justifyContent?: string;
   alignItems?: string;
   backgroundColor?: string;
   border?: string;
   borderRadius?: string;
   flexDirection?: string; //flex-box안에 내용들을 정렬해주는애
+  outlineStyle?: string;
 }
 
 export const Wrapper = styled.div`
@@ -31,6 +33,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Box = styled.div`
+  position: relative;
+
   width: ${(props: IStyle) => (props.width ? props.width : null)};
   height: ${(props: IStyle) => (props.height ? props.height : null)};
   margin: ${(props: IStyle) => (props.margin ? props.margin : null)};
@@ -58,8 +62,26 @@ export const Input = styled.input`
   height: ${(props: IStyle) => (props.height ? props.height : null)};
   margin: ${(props: IStyle) => (props.margin ? props.margin : null)};
   padding: ${(props: IStyle) => (props.padding ? props.padding : null)};
+  background-color: ${(props: IStyle) =>
+    props.backgroundColor ? props.backgroundColor : null};
+  border-radius: ${(props: IStyle) =>
+    props.borderRadius ? props.borderRadius : null};
   outline-style: none;
   border: none;
 `;
 
-export const Button = styled.button``;
+export const Button = styled.button`
+  background-color: ${(props: IStyle) =>
+    props.backgroundColor ? props.backgroundColor : null};
+  margin: ${(props: IStyle) => (props.margin ? props.margin : null)};
+  padding: ${(props: IStyle) => (props.padding ? props.padding : null)};
+  width: ${(props: IStyle) => (props.width ? props.width : null)};
+  height: ${(props: IStyle) => (props.height ? props.height : null)};
+  border: ${(props: IStyle) => (props.border ? props.border : null)};
+  border-radius: ${(props: IStyle) =>
+    props.borderRadius ? props.borderRadius : null};
+  outline-style: ${(props: IStyle) =>
+    props.outlineStyle ? props.outlineStyle : null};
+
+  color: ${(props: IStyle) => (props.color ? props.color : null)};
+`;
