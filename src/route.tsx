@@ -29,13 +29,16 @@ export const IS_LOGIN = gql`
   }
 `;
 
+type IsLogin = {
+  isLogin: boolean;
+};
+
 const Routes = () => {
-  const ca = cache.readQuery({
+  const { isLogin } = cache.readQuery({
     query: IS_LOGIN,
-  });
-  console.log(ca);
+  }) as IsLogin;
   //Routes는 페이지의 경로를 설정하는 컴포넌트
-  return false ? <LoginRoute /> : <LogoutRoute />;
+  return true ? <LoginRoute /> : <LogoutRoute />;
 };
 
 export default Routes;

@@ -34,9 +34,6 @@ export interface IProps {
     }>
   >;
 }
-/*Presenter는 View만 보여주는 단임 */
-//리액틔
-//Context
 
 const AuthPresenter: React.FC<IProps> = (props) => {
   return (
